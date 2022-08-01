@@ -6,11 +6,10 @@ export default function HeroDetail({ id }) {
   const navigate = useNavigate()
   const { slug } = useParams()
   const heroId = slug.match(/[a-z0-9]+$/)[0]
-  const { data } = useFindHeroQuery(heroId)
+  const { data } = useFindHeroQuery(heroId, {
+    refetchOnMountOrArgChange: true,
+  })
   const [deleteHero, { isLoading: isDeleting }] = useDeleteHeroMutation()
-  // console.log(deleteHero)
-  // console.log(heroId)
-  // console.log(slug)
 
   const onDelete = heroId => {
     deleteHero(heroId)
@@ -27,7 +26,11 @@ export default function HeroDetail({ id }) {
             </GoBack>
             <Img src={data.data.images} />
             <div style={{ position: 'absolute', bottom: '15px', left: '82px' }}>
-              <Button type="button" style={{ marginRight: '10px' }}>
+              <Button
+                type="button"
+                style={{ marginRight: '10px' }}
+                onClick={() => navigate(`/edit${data.data._id}`)}
+              >
                 Edit
               </Button>
               <Button type="button" onClick={() => onDelete(heroId)}>

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { heroApi } from './hero-reducer'
-// import filterSlice from 'redux/selectSlice'
+import { setupListeners } from '@reduxjs/toolkit/query'
 
 export const store = configureStore({
   reducer: {
@@ -12,3 +12,5 @@ export const store = configureStore({
   ],
   devTools: process.env.NODE_ENV === 'development',
 })
+
+setupListeners(store.dispatch)

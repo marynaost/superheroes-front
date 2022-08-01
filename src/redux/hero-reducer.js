@@ -9,13 +9,15 @@ export const heroApi = createApi({
   tagTypes: ['Hero'],
   endpoints: builder => ({
     fetchHeroes: builder.query({
-      query: () => '/heroes',
+      query: (page = 1) => `/heroes?page=${page}`,
       providesTags: ['Hero'],
+      keepUnusedDataFor: 5,
     }),
     findHero: builder.query({
       query: heroId => ({
         url: `/heroes/${heroId}`,
         providesTags: ['Hero'],
+        keepUnusedDataFor: 5,
       }),
     }),
     deleteHero: builder.mutation({

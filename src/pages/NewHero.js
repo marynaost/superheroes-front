@@ -1,3 +1,5 @@
+import AddNewHero from 'components/AddNewHero'
+
 export default function NewHero(params) {
-  return <h2>NewHero Page</h2>
+  return <AddNewHero />
 }

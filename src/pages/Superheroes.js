@@ -17,5 +17,5 @@ const Section = styled.section`
   margin-left: auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 `

@@ -6,6 +6,7 @@ import 'modern-normalize/modern-normalize.css'
 import './App.css'
 import './index.css'
 import HeroDetail from 'components/HeroDetail'
+import EditHero from 'components/EditHero'
 
 const Superheroes = lazy(() =>
   import('pages/Superheroes' /* webpackChunkName: "superheroes-page" */),
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Superheroes />} />
           <Route path=":slug" element={<HeroDetail />} />
+          <Route path="edit:heroId" element={<EditHero />} />
           <Route path="new-hero" element={<NewHero />} />
         </Route>
       </Routes>

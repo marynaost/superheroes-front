@@ -1,33 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import TablePagination from '@mui/material/TablePagination'
 import styled from 'styled-components'
-// import Pagination from '../Pagination/Pagination'
 import { useFetchHeroesQuery } from 'redux/hero-reducer'
 import HeroCard from './HeroCard'
-// import heroesSelectors from '../../Redux/Nuvem/heroes-selectors'
-import { useSelector } from 'react-redux'
 
 function HeroList() {
   const [currentPage, setCurrentPage] = useState(1)
-  const [heroesPerPage] = useState(5)
-  //   const heroes = useSelector(heroesSelectors.getHeroes)
+  const [paginationPage, setPaginarionPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const { data: hero } = useFetchHeroesQuery(currentPage)
 
-  //   const indexOfLastHero = currentPage * heroesPerPage
-  //   const indexOfFirstHero = indexOfLastHero - heroesPerPage
-  //   const currentHero = heroes.slice(indexOfFirstHero, indexOfLastHero)
-  const { data: hero } = useFetchHeroesQuery()
-  const info = useFetchHeroesQuery()
-  console.log(info)
-  // const { data } = hero
-  // console.log(data)
-  console.log(hero)
-  //   const paginate = pageNumber => setCurrentPage(pageNumber)
-  //   useEffect(() => {
-  //     first
-
-  //     return () => {
-  //       second
-  //     }
-  //   }, [third])
+  const handleChangePage = (e, newPage) => {
+    setPaginarionPage(newPage)
+    setCurrentPage(newPage + 1)
+  }
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(parseInt(event.target.value))
+    setPaginarionPage(0)
+    setCurrentPage(1)
+  }
 
   return (
     <>
@@ -43,15 +34,26 @@ function HeroList() {
               />
             ))}
           </List>
+          <PaginationWrap>
+            <div>Page: {hero.page}</div>
+            <TablePagination
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                color: 'white',
+                marginLeft: '15px',
+              }}
+              component="div"
+              rowsPerPageOptions={[5]}
+              count={hero.totalCount}
+              rowsPerPage={rowsPerPage}
+              page={paginationPage}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </PaginationWrap>
         </Container>
       )}
-
-      {/* {data.map(hero => console.log(hero))} */}
-      {/* <Pagination
-        heroesPerPage={heroesPerPage}
-        totalHeroes={heroes.length}
-        paginate={paginate}
-      /> */}
     </>
   )
 }
@@ -61,4 +63,16 @@ const Container = styled.div``
 
 const List = styled.ul`
   display: flex;
+`
+const PaginationWrap = styled.div`
+  width: 400px;
+  height: 50px;
+  color: #fff;
+  background-color: #b1bde7;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
