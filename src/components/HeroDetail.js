@@ -75,7 +75,7 @@ const Wrap = styled.div`
   align-items: center;
   width: 1000px;
   height: 600px;
-  background-color: #fff;
+  background-color: aliceblue;
   padding: 10px;
 `
 
@@ -91,6 +91,11 @@ const GoBack = styled.button`
   background-color: #2f3c68;
   color: #fff;
   border: 1px solid #000;
+  &:hover,
+  &:focus {
+    background-color: #5b6897;
+    cursor: pointer;
+  }
 `
 
 const Img = styled.img`
@@ -122,4 +127,28 @@ const Button = styled.button`
   color: #fff;
   background-color: #2f3c68;
   border: 1px solid #000;
+  cursor: pointer;
+  transform: scale(1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse 2s infinite;
+  &:hover,
+  &:focus {
+    background-color: #5b6897;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(47, 60, 104, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(47, 60, 104, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(47, 60, 104, 0);
+    }
+  }
 `

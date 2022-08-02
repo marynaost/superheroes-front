@@ -3,12 +3,13 @@ import TablePagination from '@mui/material/TablePagination'
 import styled from 'styled-components'
 import { useFetchHeroesQuery } from 'redux/hero-reducer'
 import HeroCard from './HeroCard'
+import Loader from './Loader'
 
 function HeroList() {
   const [currentPage, setCurrentPage] = useState(1)
   const [paginationPage, setPaginarionPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
-  const { data: hero } = useFetchHeroesQuery(currentPage)
+  const { data: hero, isLoading } = useFetchHeroesQuery(currentPage)
 
   const handleChangePage = (e, newPage) => {
     setPaginarionPage(newPage)
@@ -22,6 +23,7 @@ function HeroList() {
 
   return (
     <>
+      {isLoading && <Loader />}
       {hero && (
         <Container>
           <List>
@@ -63,6 +65,7 @@ const Container = styled.div``
 
 const List = styled.ul`
   display: flex;
+  justify-content: center;
 `
 const PaginationWrap = styled.div`
   width: 400px;
