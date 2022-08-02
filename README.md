@@ -15,3 +15,7 @@ must be as URL link { "images":
 @ DELETE /:id - Delete hero by ID
 
 @PATCH /:id - Update hero data by ID
+
+OR
+
+follow the [LINK](https://superheroes-app-marynaost.netlify.app/)
