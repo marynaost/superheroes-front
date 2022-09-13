@@ -14,7 +14,7 @@ const NewHero = lazy(() =>
 )
 
 const HeroDetail = lazy(() =>
-  import('components/HeroDetail' /* webpackChunkName: "herofetail-page" */),
+  import('components/HeroDetail' /* webpackChunkName: "herodetail-page" */),
 )
 const EditHero = lazy(() =>
   import('components/EditHero' /* webpackChunkName: "edithero-page" */),

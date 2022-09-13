@@ -4,6 +4,10 @@ import HeroList from 'components/HeroList'
 export default function Superheroes(params) {
   return (
     <Section>
+      <Text>
+        If you deleted a hero, please add a new hero with real information, not
+        abracadabra. Don't be a lazy frog
+      </Text>
       <HeroList />
     </Section>
   )
@@ -11,11 +15,24 @@ export default function Superheroes(params) {
 
 const Section = styled.section`
   height: calc(100vh - 60px);
-  max-width: 1200px;
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
+`
+
+const Text = styled.p`
+  width: 400px;
+  padding: 5px;
+  background-color: #b1bde7;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 60px;
 `

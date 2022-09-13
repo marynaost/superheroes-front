@@ -8,9 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background-image: url(./img/marvel.jpg);
   background-repeat: no-repeat;
-  background-position: 0 60px;
+  background-image: url(./img/marvel.jpg);
+  background-position: center;
   background-size: cover;
   object-fit: fill;
   background-attachment: fixed;

@@ -73,10 +73,17 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 1000px;
-  height: 600px;
   background-color: aliceblue;
   padding: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+    height: 530px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1000px;
+    height: 600px;
+  }
 `
 
 const GoBack = styled.button`
@@ -103,14 +110,31 @@ const Img = styled.img`
   width: 250px;
   height: 350px;
   object-fit: cover;
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    height: 300px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 250px;
+    height: 350px;
+  }
 `
 const InfoWrap = styled.div`
-  width: 600px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 600px;
+  }
 `
 
 const Info = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
+  @media screen and (min-width: 1200px) {
+    font-size: 18px;
+  }
 `
 
 const Span = styled.span`
@@ -119,8 +143,8 @@ const Span = styled.span`
 `
 
 const Button = styled.button`
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   font-weight: 700;
   border-radius: 50%;
@@ -134,6 +158,10 @@ const Button = styled.button`
   &:hover,
   &:focus {
     background-color: #5b6897;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 70px;
+    height: 70px;
   }
   @keyframes pulse {
     0% {

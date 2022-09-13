@@ -14,10 +14,17 @@ export default function HeroCard({ image, name, id }) {
 }
 
 const Card = styled.li`
-  width: 200px;
+  width: 120px;
   background: #000;
   border: 7px solid #000;
   border-radius: 7%;
+
+  @media screen and (min-width: 768px) {
+    width: 139px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 200px;
+  }
   &:not(:last-child) {
     margin-right: 15px;
   }
@@ -29,7 +36,14 @@ const Card = styled.li`
 `
 const Img = styled.img`
   width: 100%;
-  height: 250px;
+  height: 150px;
   object-fit: cover;
   border-radius: 7%;
+
+  @media screen and (min-width: 768px) {
+    height: 200px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 250px;
+  }
 `

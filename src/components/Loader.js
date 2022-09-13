@@ -57,11 +57,11 @@ const Wrapper = styled.div`
         opacity: 0.4;
       }
     }
-    .shadow:nth-child(4) {
+    &:nth-child(4) {
       left: 45%;
       animation-delay: 0.2s;
     }
-    .shadow:nth-child(5) {
+    &:nth-child(5) {
       left: auto;
       right: 15%;
       animation-delay: 0.3s;

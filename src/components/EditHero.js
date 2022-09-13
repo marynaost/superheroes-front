@@ -148,12 +148,21 @@ const FormikWrap = styled.div`
 
 const Wrap = styled.div`
   position: relative;
-  width: 800px;
-  height: 600px;
+  width: 550px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: aliceblue;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+    height: 530px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 800px;
+    height: 600px;
+  }
 
   label {
     color: #000;

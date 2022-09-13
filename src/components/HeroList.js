@@ -7,25 +7,25 @@ import Loader from './Loader'
 
 function HeroList() {
   const [currentPage, setCurrentPage] = useState(1)
-  const [paginationPage, setPaginarionPage] = useState(0)
+  const [paginationPage, setPaginationPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
   const { data: hero, isLoading } = useFetchHeroesQuery(currentPage)
 
   const handleChangePage = (e, newPage) => {
-    setPaginarionPage(newPage)
+    setPaginationPage(newPage)
     setCurrentPage(newPage + 1)
   }
   const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value))
-    setPaginarionPage(0)
+    setPaginationPage(0)
     setCurrentPage(1)
   }
 
   return (
     <>
       {isLoading && <Loader />}
-      {hero && (
-        <Container>
+      {hero && hero.data.length > 0 ? (
+        <div>
           <List>
             {hero.data.map(hero => (
               <HeroCard
@@ -54,14 +54,16 @@ function HeroList() {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </PaginationWrap>
-        </Container>
+        </div>
+      ) : (
+        <Notification>
+          Sorry, the list of heroes is empty. Add new hero
+        </Notification>
       )}
     </>
   )
 }
 export default HeroList
-
-const Container = styled.div``
 
 const List = styled.ul`
   display: flex;
@@ -78,4 +80,14 @@ const PaginationWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+const Notification = styled.div`
+  width: 350px;
+  height: 70px;
+  font-size: 20px;
+  color: #fff;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #b1bde7;
 `
