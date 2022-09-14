@@ -146,7 +146,7 @@ const FormikWrap = styled.div`
   align-items: center;
 `
 const Wrap = styled.div`
-  width: 550px;
+  width: 90%;
   height: 500px;
   display: flex;
   justify-content: center;
@@ -169,13 +169,17 @@ const Wrap = styled.div`
   }
 
   .field {
-    width: 500px;
+    width: 280px;
     height: 30px;
     border: 1px solid #0e1a33;
     background-color: #b5c6df;
+    @media screen and (min-width: 768px) {
+      width: 500px;
+    }
   }
 `
 const FieldWrap = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -183,13 +187,17 @@ const FieldWrap = styled.div`
 
 const ErrorMessage = styled.div`
   color: red;
+  position: absolute;
+  bottom: -14px;
+  font-size: 11px;
 `
 const Button = styled.button`
   display: block;
   margin-right: auto;
   margin-left: auto;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
+  font-size: 11px;
   padding: 0;
   font-weight: 700;
   border-radius: 50%;
@@ -219,5 +227,14 @@ const Button = styled.button`
       transform: scale(0.95);
       box-shadow: 0 0 0 0 rgba(47, 60, 104, 0);
     }
+  }
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 70px;
+    height: 70px;
   }
 `

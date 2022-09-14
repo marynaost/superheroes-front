@@ -14,7 +14,7 @@ export default function Superheroes(params) {
 }
 
 const Section = styled.section`
-  height: calc(100vh - 60px);
+  height: calc(100% - 60px);
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -28,11 +28,14 @@ const Section = styled.section`
 `
 
 const Text = styled.p`
-  width: 400px;
+  width: 280px;
   padding: 5px;
   background-color: #b1bde7;
   color: #fff;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 `

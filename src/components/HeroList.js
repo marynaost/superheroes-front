@@ -14,11 +14,22 @@ function HeroList() {
   const handleChangePage = (e, newPage) => {
     setPaginationPage(newPage)
     setCurrentPage(newPage + 1)
+    handleScroll()
   }
   const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value))
     setPaginationPage(0)
     setCurrentPage(1)
+  }
+
+  const handleScroll = () => {
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }, 500)
   }
 
   return (
@@ -66,11 +77,13 @@ function HeroList() {
 export default HeroList
 
 const List = styled.ul`
-  display: flex;
-  justify-content: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 const PaginationWrap = styled.div`
-  width: 400px;
+  width: 280px;
   height: 50px;
   color: #fff;
   background-color: #b1bde7;
@@ -80,9 +93,12 @@ const PaginationWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 `
 const Notification = styled.div`
-  width: 350px;
+  width: 280px;
   height: 70px;
   font-size: 20px;
   color: #fff;
@@ -90,4 +106,7 @@ const Notification = styled.div`
   margin: 0 auto;
   text-align: center;
   background-color: #b1bde7;
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
 `

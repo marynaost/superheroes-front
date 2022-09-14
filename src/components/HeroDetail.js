@@ -62,16 +62,21 @@ export default function HeroDetail({ id }) {
 }
 
 const DetailWrap = styled.div`
-  height: calc(100vh - 60px);
+  height: calc(100% - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    height: calc(100vh - 60px);
+  }
 `
 
 const Wrap = styled.div`
+  width: 90%;
+  height: 800px;
   position: relative;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   background-color: aliceblue;
   padding: 10px;
@@ -79,6 +84,8 @@ const Wrap = styled.div`
   @media screen and (min-width: 768px) {
     width: 700px;
     height: 530px;
+    flex-direction: row;
+    justify-content: space-around;
   }
   @media screen and (min-width: 1200px) {
     width: 1000px;
@@ -107,12 +114,15 @@ const GoBack = styled.button`
 
 const Img = styled.img`
   border-radius: 7%;
-  width: 250px;
-  height: 350px;
+  width: 180px;
+  height: 250px;
   object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 10px;
   @media screen and (min-width: 768px) {
     width: 200px;
     height: 300px;
+    margin: 0;
   }
   @media screen and (min-width: 1200px) {
     width: 250px;
@@ -130,7 +140,7 @@ const InfoWrap = styled.div`
 `
 
 const Info = styled.p`
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.4;
   @media screen and (min-width: 1200px) {
     font-size: 18px;
@@ -143,8 +153,9 @@ const Span = styled.span`
 `
 
 const Button = styled.button`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  font-size: 11px;
   padding: 0;
   font-weight: 700;
   border-radius: 50%;
@@ -158,6 +169,12 @@ const Button = styled.button`
   &:hover,
   &:focus {
     background-color: #5b6897;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
   }
   @media screen and (min-width: 1200px) {
     width: 70px;
