@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const heroApi = createApi({
   reducerPath: 'heroes',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://super-heroes-nuvem.herokuapp.com/api',
+    baseUrl: 'https://superheroes-back.onrender.com/api',
   }),
   tagTypes: ['Hero'],
   endpoints: builder => ({
